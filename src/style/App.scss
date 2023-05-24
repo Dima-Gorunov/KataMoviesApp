@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  word-break: break-word;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+}
+
+.background {
+  background-color: #E5E5E5;
+}
+
+.body-container {
+  width: 1010px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 36px;
+  padding-right: 36px;
+  background-color: #FFFFFF;
+}
+
+.input-container {
+
+}
+
+.cards-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 36px;
+}
+
+.movie-card-container {
+  position: relative;
+  display: flex;
+  width: 454px;
+  height: 281px;
+  box-shadow: 9px 5px 8px 8px rgba(0, 0, 0, 0.1);
+  background-color: #FFFFFF;
+  .aver-rating-container{
+    position: absolute;
+    right: 9px;
+    top: 12px;
+  }
+}
+
+.movie-card__image-container {
+  margin-right: 20px;
+
+  img {
+    width: 183px;
+    height: 100%;
+  }
+}
+
+.movie-card {
+  padding-top: 12px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+
+  overflow-wrap: break-word;
+
+  .movie-card__title-container {
+  }
+
+  .movie-card__title {
+    font-size: 20px;
+    line-height: 28px;
+    max-width: 210px;
+    text-transform: capitalize;
+    margin-bottom: 7px;
+  }
+
+  .movie-card__release-date {
+    line-height: 22px;
+    color: #827E7E;
+    margin-bottom: 7px;
+  }
+
+  .movie-card__genres-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 7px;
+    align-items: center;
+  }
+
+  .movie-card__genres {
+    padding-left: 5px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 3px;
+    line-height: 15px;
+    border: 1px solid #D9D9D9;
+    border-radius: 2px;
+    margin-right: 8px;
+
+  }
+
+  .movie-card__description {
+    line-height: 22px;
+    max-height: 129px;
+    height: auto;
+  }
+
+  .movie-card__my-rating {
+    position: absolute;
+    bottom: 0;
+    width: auto;
+    ul{
+      height: 46px;
+      svg{
+        width: 17px;
+        height: 17px;
+      }
+    }
+  }
+
+  .movie-card__rating-stars {
+    .movie-card__star--filled {
+
+    }
+
+    .movie-card__star--half {
+
+    }
+
+    .movie-card__star--empty {
+
+    }
+  }
+}
