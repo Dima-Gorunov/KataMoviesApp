@@ -11,7 +11,7 @@
   background-color: #E5E5E5;
 }
 
-.spin-container{
+.spin-container {
   width: 100%;
   height: 150px;
   display: flex;
@@ -19,6 +19,7 @@
 
 .body-container {
   width: 1010px;
+  min-height: 100vh;
   margin-left: auto;
   margin-right: auto;
   padding-left: 36px;
@@ -26,11 +27,21 @@
   background-color: #FFFFFF;
 }
 
-.input-container {
+.menu-container {
+  margin-bottom: 20px;
 
+  ul {
+    justify-content: center;
+  }
+}
+
+
+.input-container {
+  margin-bottom: 32px;
 }
 
 .cards-items-container {
+  margin-bottom: 44px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -44,7 +55,8 @@
   height: 281px;
   box-shadow: 9px 5px 8px 8px rgba(0, 0, 0, 0.1);
   background-color: #FFFFFF;
-  .aver-rating-container{
+
+  .aver-rating-container {
     position: absolute;
     right: 9px;
     top: 12px;
@@ -115,9 +127,11 @@
     position: absolute;
     bottom: 0;
     width: auto;
-    ul{
+
+    ul {
       height: 46px;
-      svg{
+
+      svg {
         width: 17px;
         height: 17px;
       }
@@ -137,4 +151,14 @@
 
     }
   }
+}
+
+.pagination-container {
+  .ant-pagination-options {
+    display: none;
+  }
+
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }

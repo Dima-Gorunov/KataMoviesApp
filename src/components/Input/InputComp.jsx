@@ -15,7 +15,11 @@ class InputComp extends Component {
     }
 
     render() {
-        return <Input onChange={(e)=>this.handleInputChange(e)} value={this.props.InputText} placeholder="Type to search..."/>
+        return(
+            <div className="input-container">
+                <Input onChange={(e) => this.handleInputChange(e)} value={this.props.InputText}
+                       placeholder="Type to search..."/>
+            </div>)
     }
 }
 

@@ -8,15 +8,17 @@ class PaginationComp extends Component {
         if (this.props.MenuItem === "Rated") {
             this.props.getRatedMoviesThunk(page)
         } else {
-            this.props.getMoviesThunk(page)
+            this.props.getMoviesThunk(page, this.props.InputText)
         }
     }
 
     render() {
         return (
-            <Pagination onChange={(page, pageSize) => this.change(page, pageSize)} defaultPageSize={1}
-                        defaultCurrent={1} current={this.props.ActivePage}
-                        total={this.props.Pages}/>
+            <div className="pagination-container">
+                <Pagination onChange={(page, pageSize) => this.change(page, pageSize)} defaultPageSize={1}
+                            defaultCurrent={1} current={this.props.ActivePage}
+                            total={this.props.Pages}/>
+            </div>
         )
     }
 }

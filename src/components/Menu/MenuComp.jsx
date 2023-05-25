@@ -18,8 +18,10 @@ class MenuComp extends Component {
 
     render() {
         return (
-            <Menu onClick={(e) => this.onClick(e)} selectedKeys={this.props.SelectedMenuItem} mode="horizontal"
-                  items={this.props.MenuItems}/>
+            <div className="menu-container">
+                <Menu onClick={(e) => this.onClick(e)} selectedKeys={this.props.SelectedMenuItem} mode="horizontal"
+                      items={this.props.MenuItems}/>
+            </div>
         )
     }
 }
