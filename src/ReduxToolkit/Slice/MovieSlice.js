@@ -37,7 +37,7 @@ const MovieSlice = createSlice({
         },
         setMovies(state, {payload}) {
             const movies = payload
-            state.Movies = movies.map((movie, index) => {
+            state.Movies = movies?.map((movie, index) => {
                 movie.poster_path = movie.poster_path ? `${`https://image.tmdb.org/t/p/original` + movie.poster_path}` : null
                 let sliceOverview = movie.overview
                 let titleLength = movie.title.length
@@ -96,9 +96,13 @@ export const getDetailsData = (id) => {
     }
 }
 
-export const getMoviesThunk = (newPage, text = "thor") => {
+export const getMoviesThunk = (newPage, text) => {
     return async (dispatch) => {
         try {
+            if (!text) {
+                throw Error("введите текст")
+            }
+            text = text.split(" ").filter(Boolean).join(" ");
             dispatch(setMoviesLoad(true))
             const response = await MoviesApi.getDefData(newPage, text)
             const {page, results, total_pages} = response.data
@@ -106,6 +110,7 @@ export const getMoviesThunk = (newPage, text = "thor") => {
             dispatch(setPages(total_pages))
             dispatch(setActivePage(page))
         } catch (e) {
+            dispatch(setMovies([]))
             console.log(e.response?.data?.message || e.message || 'error');
         } finally {
             dispatch(setMoviesLoad(false))
@@ -135,6 +140,7 @@ export const getRatedMoviesThunk = (page) => {
             dispatch(setPages(response.data.total_pages))
             dispatch(setActivePage(response.data.page))
         } catch (e) {
+            dispatch(setMovies(null))
             console.log(e.response?.data?.message || e.message || 'error');
         } finally {
             dispatch(setMoviesLoad(false))

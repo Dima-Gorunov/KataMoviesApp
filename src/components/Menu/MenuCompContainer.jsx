@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import MenuComp from "./MenuComp";
 import {connect} from "react-redux";
-import {getMenuItems, getSelectedMenuItem} from "../../ReduxToolkit/Selectors/MovieSelector";
-import {getRatedMoviesThunk, setSelectedMenuItemThunk} from "../../ReduxToolkit/Slice/MovieSlice";
+import {getInputText, getMenuItems, getSelectedMenuItem} from "../../ReduxToolkit/Selectors/MovieSelector";
+import {getMoviesThunk, getRatedMoviesThunk, setSelectedMenuItemThunk} from "../../ReduxToolkit/Slice/MovieSlice";
 
 class MenuCompContainer extends Component {
     render() {
@@ -15,8 +15,13 @@ class MenuCompContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         MenuItems: getMenuItems(state),
-        SelectedMenuItem: getSelectedMenuItem(state)
+        SelectedMenuItem: getSelectedMenuItem(state),
+        InputText:getInputText(state)
     }
 }
 
-export default connect(mapStateToProps, {setSelectedMenuItemThunk, getRatedMoviesThunk})(MenuCompContainer);
+export default connect(mapStateToProps, {
+    setSelectedMenuItemThunk,
+    getMoviesThunk,
+    getRatedMoviesThunk
+})(MenuCompContainer);

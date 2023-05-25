@@ -5,7 +5,11 @@ import {Pagination} from 'antd';
 class PaginationComp extends Component {
     change(page, pageSize) {
         console.log(page, pageSize);
-        this.props.getMoviesThunk(page)
+        if (this.props.MenuItem === "Rated") {
+            this.props.getRatedMoviesThunk(page)
+        } else {
+            this.props.getMoviesThunk(page)
+        }
     }
 
     render() {

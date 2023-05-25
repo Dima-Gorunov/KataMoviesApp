@@ -9,7 +9,7 @@ export const MoviesApi = {
     testApiKey() {
         return instance.get(`/3/guest_session/d59e4bbdf10052485a07950311596a9d/rated/movies`)
     },
-    getDefData(page = 1, text = "avatar") {
+    getDefData(page = 1, text) {
         return instance.get(`/3/search/movie?query=${text}&page=${page}`)
     },
 
