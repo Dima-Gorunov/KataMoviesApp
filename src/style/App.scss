@@ -162,3 +162,106 @@
   justify-content: center;
   margin-bottom: 20px;
 }
+
+@media (max-width: 720px) {
+
+  .body-container {
+    width: auto;
+    padding: 0;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .cards-items-container {
+    display: block;
+    width: auto;
+  }
+
+  .movie-card-container {
+    position: relative;
+    width: 387px;
+    height: 245px;
+    box-shadow: 0px 3px 10px 4px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    margin-bottom: 20px;
+
+    .aver-rating-container {
+      position: absolute;
+      right: 8px;
+      top: 5px;
+    }
+  }
+
+  .movie-card__image-container {
+    margin-right: 20px;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+
+    img {
+      width: 60px;
+      height: 91px;
+    }
+  }
+
+  .movie-card {
+    width: 100%;
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .movie-card__title-container {
+      padding-top: 12px;
+      padding-left: 83px;
+      width: 340px;
+      min-height: 91px;
+    }
+
+    .movie-card__title {
+      max-width: 100%;
+    }
+
+    .movie-card__release-date {
+
+    }
+
+    .movie-card__genres-container {
+
+    }
+
+    .movie-card__genres {
+    }
+
+    .movie-card__description {
+
+    }
+
+    .movie-card__my-rating {
+      right: 15px;
+      ul {
+        height: 46px;
+
+        svg {
+          width: 17px;
+          height: 17px;
+        }
+      }
+    }
+
+    .movie-card__rating-stars {
+      .movie-card__star--filled {
+
+      }
+
+      .movie-card__star--half {
+
+      }
+
+      .movie-card__star--empty {
+
+      }
+    }
+  }
+
+
+}
