@@ -27,5 +27,9 @@ export const MoviesApi = {
 
     getDetailsData(id) {
         return instance.get(`/3/movie/${id}`)
+    },
+
+    getGenres(){
+        return instance.get(`/3/genre/movie/list`)
     }
 }

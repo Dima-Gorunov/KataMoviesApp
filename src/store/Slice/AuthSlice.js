@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {MoviesApi} from "../../Api/MoviesApi";
+import {MoviesApi} from "../../services/MoviesApi";
 
 
 const AuthSlice = createSlice({

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Menu} from 'antd';
-import {getRatedMoviesThunk} from "../../ReduxToolkit/Slice/MovieSlice";
+import {getRatedMoviesThunk} from "../../store/Slice/MovieSlice";
 
 
 class MenuComp extends Component {

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import InputComp from "./InputComp";
-import {getInputText, getSelectedMenuItem} from "../../ReduxToolkit/Selectors/MovieSelector";
-import {getMoviesThunk, setInputText} from "../../ReduxToolkit/Slice/MovieSlice";
+import {getInputText, getSelectedMenuItem} from "../../store/Selectors/MovieSelector";
+import {getMoviesThunk, setInputText} from "../../store/Slice/MovieSlice";
 
 class InputCompContainer extends Component {
     render() {

@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {MoviesApi} from "../../Api/MoviesApi";
+import {MoviesApi} from "../../services/MoviesApi";
 
 
 const MovieSlice = createSlice({
@@ -22,6 +22,7 @@ const MovieSlice = createSlice({
         ShowMovies: [],
         Pages: 1,
         ActivePage: 1,
+        Genres: []
     },
     reducers: {
         setInputText(state, {payload}) {
@@ -35,6 +36,7 @@ const MovieSlice = createSlice({
         setSelectedMenuItem(state, {payload}) {
             state.SelectedMenuItem = payload
         },
+
         setMovies(state, {payload}) {
             const movies = payload
             state.Movies = movies?.map((movie, index) => {
@@ -47,9 +49,27 @@ const MovieSlice = createSlice({
                 movie.overview = sliceOverview + `${overviewLength > maxLength ? " ..." : ""}`
                 movie.rating = movie?.rating || 0
                 movie.success_vote = false
+                movie.genres_names = []
                 return movie
             })
         },
+
+        setAllGenres(state, {payload}) {
+            state.Genres = payload
+        },
+
+        setMovieGenres(state, {payload}) {
+            const {movieId, genresIds} = payload
+            const movieIndex = state.Movies.findIndex((item) => item.id === movieId)
+            genresIds?.forEach(genreId=>{
+                const genreIndex = state.Genres.findIndex((item) => item.id === genreId)
+                if (movieIndex !== -1 && genreIndex !== -1) {
+                    const genreName = state.Genres[genreIndex].name
+                    state.Movies[movieIndex].genres_names.push(genreName)
+                }
+            })
+        },
+
         setRating(state, {payload}) {
             const {id, value, status_message} = payload
             const index = state.Movies.findIndex((item) => item.id === id)
@@ -70,6 +90,29 @@ const MovieSlice = createSlice({
         }
     }
 })
+
+export const setMovieGenresThunk = (movieId, genresIds) => {
+    return async (dispatch) => {
+        try {
+            dispatch(setMovieGenres({movieId, genresIds}))
+
+        } catch (e) {
+            console.log(e.response?.data?.message || e.message || 'error');
+        }
+    }
+}
+
+export const getAllGenresThunk = () => {
+    return async (dispatch) => {
+        try {
+            const response = await MoviesApi.getGenres()
+            console.log(response);
+            dispatch(setAllGenres(response.data.genres))
+        } catch (e) {
+            console.log(e.response?.data?.message || e.message || 'error');
+        }
+    }
+}
 
 
 export const setSelectedMenuItemThunk = (key) => {
@@ -158,6 +201,6 @@ export const setInputTextThunk = (text) => {
     }
 }
 
-export const {setRating, setMovies, setMoviesLoad, setSelectedMenuItem, pushDetailedMovies, setInputText, setActivePage, setPages} = MovieSlice.actions
+export const {setMovieGenres, setAllGenres, setRating, setMovies, setMoviesLoad, setSelectedMenuItem, pushDetailedMovies, setInputText, setActivePage, setPages} = MovieSlice.actions
 
 export default MovieSlice.reducer

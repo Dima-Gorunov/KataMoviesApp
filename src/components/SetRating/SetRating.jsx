@@ -8,8 +8,10 @@ class SetRating extends Component {
     render() {
         return (
             <Rate onChange={(value) => this.setRate(value)} style={{lineHeight: "25px"}}
-                  count={10} allowHalf
-                  defaultValue={this.props.Movie.rating || 0}/>
+                  count={10}
+                  value={this.props.Movie.rating}
+                  allowHalf
+                  defaultValue={0}/>
         )
     }
 }

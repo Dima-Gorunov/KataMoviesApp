@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import defImage from "../../img/bp.jpeg";
-import defImageStars from "../../img/stars.png";
+import defImage from "../../assets/bp.jpeg";
+import defImageStars from "../../assets/stars.png";
 
 class CardLoader extends Component {
     render() {

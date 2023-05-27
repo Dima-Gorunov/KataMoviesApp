@@ -6,8 +6,8 @@ import {
     getDetailedMovies,
     getMovies, getMoviesLoad,
     getSelectedMenuItem
-} from "../../ReduxToolkit/Selectors/MovieSelector";
-import {getMoviesThunk, getRatedMoviesThunk} from "../../ReduxToolkit/Slice/MovieSlice";
+} from "../../store/Selectors/MovieSelector";
+import {getMoviesThunk, getRatedMoviesThunk} from "../../store/Slice/MovieSlice";
 import SpinComp from "../Spin/Spin";
 import NoData from "../Spin/NoData";
 

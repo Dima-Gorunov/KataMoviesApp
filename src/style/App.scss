@@ -93,6 +93,7 @@
   }
 
   .movie-card__release-date {
+    text-transform: capitalize;
     line-height: 22px;
     color: #827E7E;
     margin-bottom: 7px;
@@ -103,9 +104,11 @@
     flex-wrap: wrap;
     margin-bottom: 7px;
     align-items: center;
+    min-height: 21px;
   }
 
   .movie-card__genres {
+    background-color: #FAFAFA;
     padding-left: 5px;
     padding-right: 4px;
     padding-top: 2px;
@@ -230,6 +233,7 @@
     }
 
     .movie-card__genres {
+
     }
 
     .movie-card__description {

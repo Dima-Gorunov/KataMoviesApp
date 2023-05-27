@@ -3,6 +3,12 @@ import {Input} from 'antd';
 
 
 class InputComp extends Component {
+    inputRef = React.createRef();
+
+    componentDidMount() {
+        this.inputRef.current.focus();
+    }
+    
     debounceTimer = null;
 
     handleInputChange = (e) => {
@@ -17,7 +23,7 @@ class InputComp extends Component {
     render() {
         return(
             <div className="input-container">
-                <Input onChange={(e) => this.handleInputChange(e)} value={this.props.InputText}
+                <Input ref={this.inputRef} onChange={(e) => this.handleInputChange(e)} value={this.props.InputText}
                        placeholder="Type to search..."/>
             </div>)
     }

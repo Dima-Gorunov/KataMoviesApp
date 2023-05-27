@@ -1,12 +1,25 @@
 import React, {Component} from 'react';
-import defImage from '../../img/bp.jpeg'
-import defImageStars from '../../img/stars.png'
+import defImage from '../../assets/bp.jpeg'
+import defImageStars from '../../assets/stars.png'
 import PropTypes from 'prop-types'
 import AverRatingContainer from "../AverRating/AverRatingContainer";
 import SetRatingContainer from "../SetRating/SetRatingContainer";
+import GenresContainer from "../Genres/GenresContainer";
 
 class Card extends Component {
+
+    formatData(data) {
+        const inputDate = data;
+        const dateParts = inputDate.split("-");
+        const year = dateParts[0];
+        const month = new Date(inputDate).toLocaleString('default', {month: 'long'});
+        const day = parseInt(dateParts[2]);
+        const formattedDate = `${month}, ${day}, ${year}`;
+        return formattedDate
+    }
+
     render() {
+        console.log(this.props.Movie);
         const titleLength = this.props.Movie.title.split('').length
         return (
             <div className="movie-card-container">
@@ -24,11 +37,10 @@ class Card extends Component {
                         <div className="movie-card__title"
                              style={{fontSize: titleLength > 40 ? "14px" : "20px"}}>{this.props.Movie.title}</div>
                         <div
-                            className="movie-card__release-date">{this.props.Movie.release_date || "date: no info"}</div>
+                            className="movie-card__release-date">{this.formatData(this.props.Movie.release_date) || "date: no info"}</div>
                         <div className="movie-card__genres-container">
-                            Genres:
-                            {(this.props.Movie.genres && this.props.Movie.genres.map((item, index) => (
-                                <div className="movie-card__genres">{item.name}</div>
+                            {(this.props?.Movie?.genres_names && this.props?.Movie?.genres_names?.map((name, index) => (
+                                <div className="movie-card__genres">{name}</div>
                             ))) || <div className="movie-card__genres">plugs</div>}
                         </div>
                     </div>
@@ -36,7 +48,7 @@ class Card extends Component {
                         {this.props.Movie.overview || "no description"}
                     </div>
                     <div className="movie-card__my-rating">
-                        <SetRatingContainer Movie={this.props.Movie} />
+                        <SetRatingContainer Movie={this.props.Movie}/>
                     </div>
                 </div>
             </div>
@@ -54,7 +66,8 @@ Card.propTypes = {
         overview: PropTypes.string,
         poster_path: PropTypes.string,
         rating: PropTypes.number,
-        success_vote: PropTypes.bool
+        success_vote: PropTypes.bool,
+        genres_names: PropTypes.arrayOf(PropTypes.string)
     })
 }
 

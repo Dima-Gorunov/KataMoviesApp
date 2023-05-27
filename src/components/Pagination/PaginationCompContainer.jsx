@@ -7,13 +7,14 @@ import {
     getMovies, getMoviesLoad,
     getPages,
     getSelectedMenuItem
-} from "../../ReduxToolkit/Selectors/MovieSelector";
-import {getMoviesThunk, getRatedMoviesThunk} from "../../ReduxToolkit/Slice/MovieSlice";
+} from "../../store/Selectors/MovieSelector";
+import {getMoviesThunk, getRatedMoviesThunk} from "../../store/Slice/MovieSlice";
 
 class PaginationCompContainer extends Component {
 
     render() {
-        return (this.props.Movies.length > 0 && !this.props.MoviesLoad) && <PaginationComp {...this.props}/>
+        return ((this.props.Movies.length > 0 && !this.props.MoviesLoad) && this.props.Pages > 1) &&
+            <PaginationComp {...this.props}/>
     }
 }
 
@@ -24,7 +25,7 @@ const mapStateToProps = (state) => {
         MenuItem: getSelectedMenuItem(state),
         Movies: getMovies(state),
         InputText: getInputText(state),
-        MoviesLoad:getMoviesLoad(state)
+        MoviesLoad: getMoviesLoad(state)
     }
 }
 
