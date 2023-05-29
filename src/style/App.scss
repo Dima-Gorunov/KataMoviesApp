@@ -130,6 +130,8 @@
     position: absolute;
     bottom: 0;
     width: auto;
+    height: 52px;
+    background-color: #FFFFFF;
 
     ul {
       height: 46px;
@@ -221,15 +223,16 @@
     }
 
     .movie-card__title {
+      grid-area: title;
       max-width: 100%;
     }
 
     .movie-card__release-date {
-
+      grid-area: release-date;
     }
 
     .movie-card__genres-container {
-
+      grid-area: genres-container;
     }
 
     .movie-card__genres {
@@ -242,6 +245,7 @@
 
     .movie-card__my-rating {
       right: 15px;
+      height: 40px;
       ul {
         height: 46px;
 
