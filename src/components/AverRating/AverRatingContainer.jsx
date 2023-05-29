@@ -1,15 +1,16 @@
-import React, {Component} from 'react';
-import AverRating from "./AverRating";
-import {connect} from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import AverRating from './AverRating';
 
 class AverRatingContainer extends Component {
-    render() {
-        return <AverRating {...this.props} />
-    }
+  render() {
+    return <AverRating {...this.props} />;
+  }
 }
 
 const mapStateToProps = (state) => {
-    return {}
-}
+  return {};
+};
 
 export default connect(mapStateToProps, {})(AverRatingContainer);

@@ -1,20 +1,18 @@
-import React, {Component} from 'react';
-import {connect} from "react-redux";
-import Genres from "./Genres";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import Genres from './Genres';
 
 class GenresContainer extends Component {
+  componentDidMount() {}
 
-    componentDidMount() {
-
-    }
-
-    render() {
-        return <Genres {...this.props}/>
-    }
+  render() {
+    return <Genres {...this.props} />;
+  }
 }
 
 const mapStateToProps = (state) => {
-    return {}
-}
+  return {};
+};
 
 export default connect(mapStateToProps, {})(GenresContainer);

@@ -102,7 +102,6 @@
   .movie-card__genres-container {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 7px;
     align-items: center;
     min-height: 21px;
   }
@@ -117,6 +116,7 @@
     border: 1px solid #D9D9D9;
     border-radius: 2px;
     margin-right: 8px;
+    margin-bottom: 7px;
 
   }
 
